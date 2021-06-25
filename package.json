@@ -1,0 +1,21 @@
+{
+  "name": "hive_case",
+  "version": "1.0.0",
+  "description": "projeto de crud para case da empresa hive",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "nodemon ./src/server.js"
+  },
+  "author": "Marcos Travagin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0",
+    "sucrase": "^3.19.0",
+    "uuid": "^8.3.2",
+    "yup": "^0.32.9"
+  }
+}
