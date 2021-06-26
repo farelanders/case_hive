@@ -1,14 +1,14 @@
-import app from './app';
+import app from './app'
 import connection from './config/connection'
 
 const connect = async () => {
-    try {
-        await connection.authenticate()
-        console.log('Database running...')
-    } catch(error){
-        console.log(error)
-    }
+  try {
+    await connection.authenticate()
+    console.log('Database running...')
+  } catch (error) {
+    console.log(error)
+  }
 }
-connect();
+connect()
 
-app.listen(3000);
+app.listen(3000)

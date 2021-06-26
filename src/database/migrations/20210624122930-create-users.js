@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('users', {
       id: {
-        allowNull: false,        
+        allowNull: false,
         primaryKey: true,
         type: Sequelize.STRING
       },
@@ -17,16 +17,16 @@ module.exports = {
       },
       nickname: {
         allowNull: false,
-        type: "VARCHAR(30)",
-        unique: true,
+        type: 'VARCHAR(30)',
+        unique: true
       },
       address: {
         allowNull: false,
         type: Sequelize.STRING
       },
       bio: {
-        type: "VARCHAR(100)",
-        allowNull: true,
+        type: 'VARCHAR(100)',
+        allowNull: true
       },
       createdAt: {
         allowNull: false,
@@ -36,9 +36,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    })
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('users')
   }
-};
+}
