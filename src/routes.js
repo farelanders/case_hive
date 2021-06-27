@@ -22,7 +22,7 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions)
 routes.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
-routes.get('/', (req, res) => { res.send('This is a case API, to test it acces https://github.com/farelanders/case_hive') })
+routes.get('/', (req, res) => { res.send('This is a case API, to test it visit https://github.com/farelanders/case_hive') })
 
 routes.post('/v1/users/', UserController.store)
 /**
