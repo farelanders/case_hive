@@ -45,6 +45,7 @@ class UserController {
         bio: usuario.bio
       })
       return res.status(200).json({
+        message: 'Usuário registrado com sucesso',
         id: id,
         name: usuario.name,
         lastname: usuario.lastname,
@@ -100,7 +101,7 @@ class UserController {
         where: { nickname: req.params.key }
       })
       if (!result) {
-        return res.status(400).json({ error: 'Nenhum usuário encontrado' })
+        return res.status(404).json({ error: 'Nenhum usuário encontrado' })
       }
       return res.status(200).json({
         name: result.name,
@@ -130,7 +131,7 @@ class UserController {
       })
       const retorno = await User.findOne({ where: { id: req.params.id } })
       if (!retorno) {
-        return res.status(400).json({ error: 'Nenhum usuário encontrado' })
+        return res.status(404).json({ error: 'Nenhum usuário encontrado' })
       }
       return res.status(200).json(retorno)
     } catch (error) {
@@ -153,7 +154,7 @@ class UserController {
         where: { id: req.params.id }
       })
       if (!idExist) {
-        return res.status(400).json({ error: 'Id não encontrado' })
+        return res.status(404).json({ error: 'Id não encontrado' })
       }
       const { nickname } = req.body
       if (req.body.nickname.length > 30) {
@@ -185,7 +186,7 @@ class UserController {
         where: { id: req.params.id }
       })
       if (!idExist) {
-        return res.status(400).json({ error: 'Id não encontrado' })
+        return res.status(404).json({ error: 'Id não encontrado' })
       }
       await User.destroy({
         where: { id: req.params.id }
