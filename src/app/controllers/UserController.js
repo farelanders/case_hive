@@ -162,7 +162,12 @@ class UserController {
           message: 'Nickname só pode ter 30 caracteres'
         })
       }
-
+      const samenickname = await User.findOne({
+        where: { id: req.params.id }
+      })
+      if (samenickname.nickname === req.body.nickname) {
+        return res.status(400).json({ error: 'Seu nickname não pode ser o mesmo' })
+      }
       const userExist = await User.findOne({
         where: { nickname: nickname }
       })
