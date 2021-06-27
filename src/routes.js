@@ -14,7 +14,7 @@ const swaggerOptions = {
       contact: {
         name: 'Marcos Antonio Travagin'
       },
-      servers: ['http://rest-api-hive.herokuapp.com/']
+      servers: ['http://localhost:3000/']
     }
   },
   apis: ['./src/routes.js']

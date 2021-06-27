@@ -4,7 +4,10 @@
   <p align="center"><br>
     Projeto de criação de processos HTTP.
       <br><br>
-    
+
+
+Documentação:
+https://rest-api-hive.herokuapp.com/api-docs/#/
 
 
 
@@ -74,7 +77,7 @@ Rodar os testes indicados abaixo.
 
 ### Testes
 
-Com a API em funcionamento, vamos rodar os testes que foram pedidos para o desafio via  Postman (ou algum similar). Estes são os testes:
+Com a API em funcionamento, vamos rodar os testes que foram pedidos para o desafio via  Postman (ou algum similar), você também pode testar os métodos pela página da documentação https://rest-api-hive.herokuapp.com/api-docs/#/. Estes são os testes:
 
 |           Endpoint          | Operação HTTP |                           Função                          |                                                                                                            Teste                                                                                                           |                                   Exemplo de Body e/ou parâmetro                                  |
 |:---------------------------:|:-------------:|:---------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------:|

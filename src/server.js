@@ -1,6 +1,6 @@
 import app from './app'
 import connection from './config/connection'
-const port = process.env.PORT
+const port = 3000
 
 const connect = async () => {
   try {
