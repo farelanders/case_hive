@@ -22,7 +22,6 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions)
 routes.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
-
 routes.get('/', (req, res) => { res.send('This is a case API, to test it acces https://github.com/farelanders/case_hive') })
 
 routes.post('/v1/users/', UserController.store)
@@ -30,14 +29,15 @@ routes.post('/v1/users/', UserController.store)
 *  @swagger
 * /v1/users:
 *  post:
-*    description: Cria um usuário no banco de dados
+*    summary: Criação de usuário.
+*    description: Cria um usuário no banco de dados e retorna os dados.
 *    consumes:
 *    - application/json
 *    produces:
 *    - application/json
 *    parameters:
 *    - in: body
-*      name: usuario
+*      name: Dados
 *      schema:
 *        $ref: '#/definitions/usuario'
 *    responses:
@@ -80,8 +80,8 @@ routes.get('/v1/users/findbyname/:key/', UserController.findByName)
 * @swagger
 * /v1/users/findbyname/{key}:
 *   get:
-*     summary: Retrieve a single JSONPlaceholder user.
-*     description: Retrieve a single JSONPlaceholder user. Can be used to populate a user profile when prototyping or testing an API.
+*     summary: Procura um usuário por nome e/ou sobrenome.
+*     description: Filtra todos os usuários cadastrador pelos campos nome e/ou sobrenome e retorna um array de usuários.
 *     parameters:
 *       - in: path
 *         name: key
@@ -102,13 +102,13 @@ routes.get('/v1/users/findbynickname/:key', UserController.findByNickname)
 * @swagger
 * /v1/users/findbynickname/{key}:
 *   get:
-*     summary: Retrieve a single JSONPlaceholder user.
-*     description: Retrieve a single JSONPlaceholder user. Can be used to populate a user profile when prototyping or testing an API.
+*     summary: Procura um usuário por nickname
+*     description: Filtra todos os usuários cadastrador pelo campo nickname e retorna um único usuário com nome, sobrenome e nickname.
 *     parameters:
 *       - in: path
 *         name: key
 *         required: true
-*         description: Nome e/ou sobrenome
+*         description: nickname
 *         schema:
 *           type: string
 *     responses:
@@ -124,14 +124,15 @@ routes.put('/v1/users/alterlastnameadress/:id', UserController.alterLastNameAddr
 *  @swagger
 * /v1/users/alterlastnameadress/{id}:
 *  put:
-*    description: Cria um usuário no banco de dados
+*    summary: Altera sobrenome e endereço de um usuário.
+*    description: Altera o sobrenome e o endereço de um usuário baseado no id recebido como parâmetro.
 *    consumes:
 *    - application/json
 *    produces:
 *    - application/json
 *    parameters:
 *    - in: body
-*      name: usuario
+*      name: Dados
 *      schema:
 *        $ref: '#/definitions/lastnameaddress'
 *    - in: path
@@ -142,7 +143,7 @@ routes.put('/v1/users/alterlastnameadress/:id', UserController.alterLastNameAddr
 *        type: string
 *    responses:
 *        200:
-*            description: Usuário registrado com sucesso
+*            description: Dados alterados com sucesso
 *        400:
 *            description: Erro na validação de dados
 *        500:
@@ -168,14 +169,15 @@ routes.put('/v1/users/alternickname/:id', UserController.alterNickname)
 *  @swagger
 * /v1/users/alternickname/{id}:
 *  put:
-*    description: Cria um usuário no banco de dados
+*    summary: Altera o nickname de um usuário.
+*    description: Altera o nickname de um usuário baseado no id recebido como parâmetro.
 *    consumes:
 *    - application/json
 *    produces:
 *    - application/json
 *    parameters:
 *    - in: body
-*      name: usuario
+*      name: Dados
 *      schema:
 *        $ref: '#/definitions/nickname'
 *    - in: path
@@ -208,13 +210,13 @@ routes.delete('/v1/users/:id', UserController.delete)
 * @swagger
 * /v1/users/{id}:
 *   delete:
-*     summary: Retrieve a single JSONPlaceholder user.
-*     description: Retrieve a single JSONPlaceholder user. Can be used to populate a user profile when prototyping or testing an API.
+*     summary: Remove um usuário
+*     description: Remove um usuário baseado no id recebido como parâmetro.
 *     parameters:
 *       - in: path
 *         name: id
 *         required: true
-*         description: Nome e/ou sobrenome
+*         description: Id do usuário
 *         schema:
 *           type: string
 *     responses:
